@@ -1,0 +1,190 @@
+
+:root{
+  /* cores */
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --accent: #2563eb;
+  --glass: rgba(255,255,255,0.04); 
+
+  /* dimensões */
+  --radius: 12px;
+  --max-width: 1100px;
+  --gutter: 16px;
+}
+
+/* -------------------------
+   Reset básico / global
+   ------------------------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  padding:24px var(--gutter);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #071023;
+  color: #e6eef8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  display:flex;
+  justify-content:center;
+}
+
+.container{
+  width:100%;
+  max-width:var(--max-width);
+}
+
+/* -------------------------
+   Tipografia
+   ------------------------- */
+h1,h2,h3,h4{margin:0}
+.lead{font-size:15px;color:#dbe8ff}
+.muted{color:var(--muted);font-size:14px}
+
+/* -------------------------
+   Header / Navegação
+   ------------------------- */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:48px;height:48px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),#7c3aed);
+  display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:18px;
+  box-shadow:0 6px 18px rgba(37,99,235,0.12);
+}
+.brand h1{font-size:18px}
+
+nav.desktop{display:flex;gap:18px;align-items:center}
+nav.desktop a{color:var(--muted);text-decoration:none;font-size:14px}
+.cta{background:var(--accent);padding:8px 12px;border-radius:8px;color:white;text-decoration:none;font-weight:600}
+.breadcrumb{color:var(--muted);font-size:13px}
+
+/* -------------------------
+   Hero e Grid principal
+   ------------------------- */
+.hero{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:var(--radius);
+  padding:24px;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:24px;
+  align-items:start;
+  margin-bottom:20px;
+  backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.main{
+    display:grid;grid-template-columns:1fr 340px;gap:20px
+}
+
+/* -------------------------
+   Cartões / Card component
+   ------------------------- */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+}
+.section{margin-bottom:16px}
+
+/* -------------------------
+   Botões e formulários
+   ------------------------- */
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn-outline{border:1px solid rgba(255,255,255,0.06);color:var(--muted);background:transparent}
+.btn-primary{background:var(--accent);color:white}
+
+.input{
+  width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:8px
+}
+
+/* -------------------------
+   Sidebar / chips
+   ------------------------- */
+.sidebar .list{display:flex;flex-direction:column;gap:10px}
+.chip{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:14px;color:var(--muted);display:inline-block}
+
+/* -------------------------
+   Grades de imagem / placeholders
+   ------------------------- */
+.image-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+.image-placeholder{
+  height:160px;border-radius:10px;border:1px dashed rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:center;color:var(--muted);
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+
+/* -------------------------
+   Utilitários pequenos
+   ------------------------- */
+.objective-list{display:grid;grid-template-columns:1fr;gap:10px}
+.objective-item{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+
+footer{margin-top:28px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.socials{display:flex;gap:10px}
+.socials a{color:var(--muted);text-decoration:none}
+
+/* -------------------------
+   Responsividade
+   ------------------------- */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .main{grid-template-columns:1fr}
+  nav.desktop{display:none}
+}
+
+@media (max-width:600px){
+  .logo{width:40px;height:40px}
+  .brand h1{font-size:16px}
+}
+
+:root{
+  --soft-shadow: 0 6px 18px rgba(2,6,23,0.45);
+  --card-glow: 0 8px 30px rgba(37,99,235,0.04);
+  --muted-2: #a8b3c3;
+  --radius-md: 14px;
+}
+
+/* um toque de "mão humana": espaçamento confortável */
+.container{padding:18px}
+.card{padding:22px;border-radius:var(--radius-md);box-shadow:var(--soft-shadow);}
+
+/* botões com micro-animações e estado 'feito por mim' */
+.btn{transition:transform .12s ease, box-shadow .12s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:var(--card-glow)}
+.btn:active{transform:translateY(-1px)}
+
+/* foco acessível e amigável */
+.input:focus, a:focus, button:focus{outline:3px solid rgba(37,99,235,0.14);outline-offset:3px}
+
+/* dar uma sensação mais humana ao texto */
+.muted{color:var(--muted-2);letter-spacing:0.1px}
+.lead{font-size:15.5px;opacity:0.96}
+
+/* headers com leve personalidade */
+h1,h2,h3{letter-spacing:0.2px}
+.logo{font-family: system-ui, "Segoe UI", -apple-system; font-weight:800}
+
+/* pequenas melhorias na grade de imagens: borda arredondada + overflow */
+.image-placeholder{overflow:hidden;border-radius:10px;background-clip:padding-box}
+.image-placeholder img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* tornar links mais "tocáveis" em mobile */
+nav.desktop a{padding:8px 6px;border-radius:8px}
+nav.desktop a:hover{background:rgba(255,255,255,0.02)}
+
+/* um toque final: rodapé centralizado em telas pequenas */
+@media (max-width:600px){
+  footer{flex-direction:column;align-items:center;gap:8px}
+}
+/* comentários de autoria — simples e direto */
+/* se quiser, eu deixo mais "manual" (fontes locais, cores suas) */
